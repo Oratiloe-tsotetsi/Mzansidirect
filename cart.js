@@ -1,61 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cartItems = document.getElementById('cart-items');
     const totalPriceElement = document.getElementById('total-price');
-    const cartCountElement = document.querySelector('.cart-count');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const clearCheckoutButton = document.getElementById('clear-checkout');
+    const checkoutButton = document.getElementById('checkout');
+    const cartItemsContainer = document.getElementById('cart-items');
 
-    function renderCart() {
-        cartItems.innerHTML = '';
-        let totalPrice = 0;
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        cart.forEach(item => {
-            if (item.price !== null && !isNaN(item.price)) {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - R${item.price.toFixed(2)}`;
-                cartItems.appendChild(li);
-                totalPrice += item.price;
-            } else {
-                console.error('Invalid price detected for item:', item);
-            }
-        });
 
-        totalPriceElement.textContent = totalPrice.toFixed(2);
-
-        // If the cart is empty, show a message
-        if (cart.length === 0) {
-            const li = document.createElement('li');
-            li.textContent = 'Your cart is empty.';
-            cartItems.appendChild(li);
-        }
+    function calculateTotalPrice() {
+        return cart.reduce((total, item) => total + item.price, 0);
     }
 
-
-    function addToCart(name, price, quantity) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-        const existingItem = cart.find(item => item.name === name);
-        if (existingItem) {
-            existingItem.quantity += quantity;
-            existingItem.price += price * quantity;
-        } else {
-            cart.push({ name, price: price * quantity, quantity });
-        }
-    
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount(); // Update cart count display
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = ''; // Clear the container first
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.textContent = `${item.name} - R${item.price}`;
+            cartItemsContainer.appendChild(itemElement);
+        });
+        totalPriceElement.textContent = calculateTotalPrice(); // Update the total price display
     }
 
     function clearCart() {
-        cart.length = 0;  // Clear the cart array
-        localStorage.removeItem('cart');  // Clear the cart in local storage
-        renderCart();  // Re-render the cart to show it is empty
-        updateCartCount();  // Update cart count in the navigation bar if applicable
-    }
-
-    function updateCartCount() {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartCountElement.textContent = totalItems;
+        cart = [];
+        localStorage.removeItem('cart');
+        totalPriceElement.textContent = '0';  // Reset the total price display
+        renderCartItems();
     }
 
     clearCheckoutButton.addEventListener('click', () => {
@@ -63,14 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Your cart has been cleared.');
     });
 
-    document.getElementById('checkout').addEventListener('click', () => {
+
+
+
+    checkoutButton.addEventListener('click', () => {
         if (cart.length > 0) {
             alert(`Total price: R${totalPriceElement.textContent}\nThank you for your purchase!`);
-            clearCart();  // Clear the cart after checkout
+            clearCart();
         } else {
             alert('Your cart is empty.');
         }
     });
-
-    renderCart();
+    renderCartItems();
 });
