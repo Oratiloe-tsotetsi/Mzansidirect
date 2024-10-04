@@ -45,4 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     renderCartItems();
+
+
+
+function generateOrderId() {
+  return 'ORD' + Math.floor(Math.random() * 1000000);
+}
+
+// Add event listener to the checkout button
+document.getElementById('checkout').addEventListener('click', function(event) {
+    // Prevent default link behavior
+    event.preventDefault();
+
+    // Generate the order ID
+    const orderId = generateOrderId();
+
+    // Redirect to the order-status.html page with the order ID as a query parameter
+    window.location.href = 'order-status.html?orderId=' + orderId;
+});
+
+    
 });

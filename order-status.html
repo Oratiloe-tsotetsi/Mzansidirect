@@ -1,248 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
   <title>Order Status</title>
- 
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- fevicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"  />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" href="css/mzansi-style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="css/responsive.css">  
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  <style>
+    .status {
+      font-size: 1.5em;
+            margin: 40px 0;
+            display: none; /* Hide statuses initially */
+        }
+        .status.active {
+            display: block; /* Show active status */
+            color: green;
+            font-weight: bold;
+        }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Check Your Order Status</h1>
-    <form id="statusForm">
-      <label for="orderId">Enter Order ID:</label>
-      <input type="text" id="orderI<!DOCTYPE html>
-      <html lang="en">
-      
-      <head>
-        <!-- basic -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- mobile metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        <!-- site metas -->
-        <title>Mzansi direct</title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <!-- fevicon -->
-        <link rel="icon" href="images/fevicon.png" type="image/gif" />
-        <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- style css -->
-        <link rel="stylesheet" href="css/mzansi-style.css">
-        <!-- Responsive-->
-        <link rel="stylesheet" href="css/responsive.css">  
-        <!-- Scrollbar Custom CSS -->
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-        <!-- Tweaks for older IEs-->
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-      </head>
-      <!-- body -->
-      
-      <body class="main-layout">
-        <!-- loader  -->
-        <div class="loader_bg">
-          <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-        </div>
-        <!-- end loader -->
-        <!-- header -->
-        <header>
-          <!-- header inner -->
-          <div class="header-top">
-            <div class="header">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-xl-2 col-lg-4 col-md-4 col-sm-3 col logo_section">
-                    <div class="full">
-                      <div class="center-desk">
-                        <div class="logo">
-                          <a href="index.html"><img src="images/mzansi-direct-high-resolution-logo-transparent.png" alt="#" /></a>
-                        </div>
+<body class="main-layout">
 
-                        <div class="cart-login-mobile">
-                          <li class="cart-icon">
-                            <a href="cart.html">
-                              <i class="fas fa-shopping-cart"></i>
-                              <span class="cart-count">0</span>
-                            </a>
-                            <div class="cart-preview">
-                              <ul id="cart-preview-items"></ul>
-                              <p>Total: R<span id="preview-total-price">0</span></p>
-                              <a href="cart.html">
-                                <button id="checkout-btn" class="checkout-btn">Checkout</button>
-                             </a>
-                            </div>
-                          </li>
-                          <li><a href="email.html">Login</a></li>
-                        </div>
-                     
-                      </div>
-                      
-                    </div>
-                   
-                    </div>
-                    <div class="col-xl-10 col-lg-8 col-md-8 col-sm-9">
-               
-                      <div class="menu-area">
-                       <div class="limit-box">
-                         <nav class="main-menu ">
-                           <ul class="menu-area-main">
-                            <li class="active"> <a href="index.html">Home</a> </li>
-                            <li> <a href="#about">About</a> </li>
-                            <li> <a href="shop.html">Shop</a> </li>
-                            <li> <a href="contactus.html">Contact Us</a> </li>
-                            <li class="cart-icon">
-                              <a href="cart.html">
-                                  <i class="fas fa-shopping-cart"></i>
-                                  <span class="cart-count">0</span>
-                              </a>
-                              <div class="cart-preview">
-                                <ul id="cart-preview-items"></ul>
-                                <p>Total: R<span id="preview-total-price">0</span></p>
-                            </div>
-                              <li> <a href="email.html">Login</a></li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </div> 
-                     </div>
-                  </div>
-                  <br>
-                  <br>
-           <!-- end header inner -->
-                     
-           <!-- end header --> 
-           <div class="container">
-            <h1>Check Your Order Status</h1>
-            <form id="statusForm">
-              <label for="orderId">Enter Order ID:</label>
-              <input type="text" id="orderId" name="orderId" required>
-              <button type="submit">Check Status</button>
-            </form>
-            <div class="status" id="statusResult"></div>
+ <!-- loader  -->
+ <div class="loader_bg">
+  <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+</div>
+<!-- end loader -->
+<!-- header -->
+<header>
+  <!-- header inner -->
+  <div class="header-top">
+    <div class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-2 col-lg-4 col-md-4 col-sm-3 col logo_section">
+            <div class="full">
+              <div class="center-desk">
+                <div class="logo">
+                  <a href="index.html"><img src="images/mzansi-direct-high-resolution-logo-transparent.png" alt="#" /></a>
+                </div>
+              </div>
+            </div>
           </div>
-      
-          <script>
-            document.getElementById('statusForm').addEventListener('submit', function(event) {
-              event.preventDefault();
-              
-              const orderId = document.getElementById('orderId').value;
-              
-              fetch(`http://localhost:3000/order-status/${orderId}`)
-                .then(response => response.json())
-                .then(data => {
-                  const statusDiv = document.getElementById('statusResult');
-                  
-                  if (data.length > 0) {
-                    statusDiv.innerHTML = `<p>Status: ${data[0].status}</p>`;
-                  } else {
-                    statusDiv.innerHTML = '<p>Order not found.</p>';
-                  }
-                })
-                .catch(error => {
-                  console.error('Error fetching order status:', error);
-                });
-            });
-          </script>
-      
-      
-       <!--  footer -->
+          <div class="col-xl-10 col-lg-8 col-md-8 col-sm-9">
        
-        <div class="footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-               <a href="#" class="logo_footer"> <img src="images/mzansi-direct-high-resolution-logo-transparent.png" alt="#" class="footer-logo"/></a>
-              </div>
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
-                <div class="row">
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
-                    <div class="address">
-                      <h3>Address </h3>
-                      <ul class="loca">
-                        <li>
-                          <a href="#"></a>Johannesburg
-                          <br>South Africa  </li>
-                          <li>
-                            <a href="#"></a>(01234567890) </li>
-                            <li>
-                              <a href="#"></a>mzansidirect@gmail.com</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                          <div class="address">
-                            <h3>Social Link</h3>
-                            <ul class="Menu_footer">
-                              <li class="active"> <a href="#">Twitter</a> </li>
-                              <li><a href="#">Facebook</a> </li>
-                              <li><a href="#">Instagram</a> </li>
-                            </ul>
-                          </div>
-                        </div>
-                       
-      
-                        
+             <div class="menu-area">
+              <div class="limit-box">
+                <nav class="main-menu">
+                  <ul class="menu-area-main">
+                    <li class="active"> <a href="index.html">Home</a> </li>
+                    <li> <a href="#about">About</a> </li>
+                    <li> <a href="shop.html">Shop</a> </li>
+                    <li> <a href="#contact">Contact Us</a> </li>
+
+                 
+                    <li class="cart-icon">
+                      <a href="cart.html">
+                          <i class="fas fa-shopping-cart"></i>
+                          <span class="cart-count">0</span>
+                      </a>
+                      <div class="cart-preview">
+                        <ul id="cart-preview-items"></ul>
+                        <p>Total: R<span id="preview-total-price">0</span></p>
                       </div>
+
+                    </li>
+                      <li> <a href="email.html">Login</a></li>
+                
+                   </ul>
+                 </nav>
+               </div>
+             </div> 
+            </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- end header inner -->
+
+   <!-- end header -->
+
+  </header>
+  <div class="container">
+    <h1>Order Status</h1>
+    <p id="order-id-display"></p>
+
+    <!-- Order status list -->
+    <div class="status-list">
+        <p class="status" id="status1">Order Processing...</p>
+        <p class="status" id="status2">Wrapping Order...</p>
+        <p class="status" id="status3">Collected by Driver...</p>
+        <p class="status" id="status4">Driver is On Its Way...</p>
+        <p class="status" id="status5">Delivered</p>
+    </div>
+</div>
+
+
+<!--  footer -->
+<footr>
+  <div class="footer ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+         <a href="#" class="logo_footer"> <img src="images/mzansi-direct-high-resolution-logo-transparent.png" alt="#" class="footer-logo"/></a>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
+              <div class="address">
+                <h3>Address </h3>
+                <ul class="loca">
+                  <li>
+                    <a href="#"></a>Johannesburg
+                    <br>South Africa  </li>
+                    <li>
+                      <a href="#"></a>(01234567890) </li>
+                      <li>
+                        <a href="#"></a>mzansidirect@gmail.com</li>
+                      </ul>
                     </div>
-      
                   </div>
-      
-                </div>
-                <div class="copyright">
-                  <div class="container">
-                    <p>Copyright © 2024 Design by Mzansi Direct </a></p>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="address">
+                      <h3>Social Link</h3>
+                      <ul class="Menu_footer">
+                        <li class="active"> <a href="#">Twitter</a> </li>
+                        <li><a href="#">Facebook</a> </li>
+                        <li><a href="#">Instagram</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                 
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 ">
+                    <div class="address">
+                      <h3>Newsletter</h3>
+                       <form class="news">
+                       <input class="newslatter" placeholder="Enter your email" type="text" name=" Enter your email">
+                        <button class="submit">Subscribe</button>
+                        </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            
-            <!-- end footer -->
-            <!-- Javascript files-->
-            <script src="js/jquery.min.js"></script>
-            <script src="js/popper.min.js"></script>
-            <script src="js/bootstrap.bundle.min.js"></script>
-            <script src="js/jquery-3.0.0.min.js"></script>
-            <script src="js/plugin.js"></script>
-            <!-- sidebar -->
-            <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="js/custom.js"></script>
-            <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-            <script src="cart.js"></script>
-      </body>
-      </html>" name="orderId" required>
-      <button type="submit">Check Status</button>
-    </form>
-    <div class="status" id="statusResult"></div>
-  </div>
+
+            </div>
+
+          </div>
+          <div class="copyright">
+            <div class="container">
+              <p>Copyright © 2024 Design by Mzansi Direct </a></p>
+            </div>
+          </div>
+        </div>
+      </footr>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+      <script>
+// This example adds a marker to indicate the position of Bondi Beach in Sydney,
+// Australia.
+
+</script>
+<!-- google map js -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+<!-- end google map js -->
+
+
+
+
+
+<script>
+  // Function to extract order ID from the URL
+  function getOrderIdFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('orderId');
+  }
+
+  // Display the order ID
+  document.getElementById('order-id-display').textContent = 'Your Order ID: ' + getOrderIdFromUrl();
+
+  // Function to update the status
+  function updateStatus(statusId, delay) {
+      setTimeout(function() {
+          document.getElementById(statusId).classList.add('active');
+      }, delay);
+  }
+
+  // Simulate status changes at 5-minute intervals (5 minutes = 300000 ms)
+  updateStatus('status1', 0);          // Order Processing
+  updateStatus('status2', 300000);     // Wrapping Order
+  updateStatus('status3', 600000);     // Collected by Driver
+  updateStatus('status4', 900000);     // On Its Way
+  updateStatus('status5', 1200000);    // Delivered (after 20 minutes)
+</script>
+
+
   
-  <script>
-    document.getElementById('statusForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const orderId = document.getElementById('orderId').value;
-      
-      fetch(`http://localhost:3000/order-status/${orderId}`)
-        .then(response => response.json())
-        .then(data => {
-          const statusDiv = document.getElementById('statusResult');
-          
-          if (data.length > 0) {
-            statusDiv.innerHTML = `<p>Status: ${data[0].status}</p>`;
-          } else {
-            statusDiv.innerHTML = '<p>Order not found.</p>';
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching order status:', error);
-        });
-    });
-  </script>
 </body>
 </html>
