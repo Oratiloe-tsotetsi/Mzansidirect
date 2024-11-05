@@ -9,6 +9,19 @@ $dbname = "Project_Mzansi"; // Your database name
 $connectionInfo = array("Database"=>$dbname, "UID"=>$username, "PWD"=>$password);
 $conn = sqlsrv_connect($servername, $connectionInfo);
 
+
+// Example of handling a form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Assume your form processing code here (e.g., save details to the database)
+    // ...
+
+    // After processing, redirect to the home page
+    header("Location: /index.html"); 
+    exit();
+}
+
+
+
 // Check if the connection is successful
 if ($conn === false) {
     die(print_r(sqlsrv_errors(), true));
