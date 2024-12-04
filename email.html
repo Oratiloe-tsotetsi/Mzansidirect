@@ -122,12 +122,25 @@
   <form method="POST" action="login.php">
     <input type="email" class="input-box" id="email" placeholder="Email" name="EmailAddress" required>
     <input type="password" class="input-box" id="password" placeholder="Password" name="Password" required>
-   <input type="submit" class="signup-btn"  value="Sign In">
+   <input type="submit" class="signup-btn" id="actionButton"  value="Sign In">
   <p class="or">Or</p>  
 <div class="signin-opt">
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
 </div>
 
+
+    <script>
+        // JavaScript to change the button text
+        const button = document.getElementById('actionButton');
+
+        button.addEventListener('click', function() {
+            if (button.value === "Sign In") {
+                button.value = "Logout";
+            } else {
+                button.value = "Sign In";
+            }
+        });
+    </script>
 
     <p>Dont have an Account? <a href="signup.html" class="sign" class="transition-link">Sign Up</a></p>
     <p><span><input type="checkbox"></span>Remember Me</p>
